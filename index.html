@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pet-adoption</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+      <!-- Navbar Start -->
+        <div class="navbar bg-base-100 px-3 lg:px-32 mt-6">
+            <div class="navbar-start">
+                <img src="assets/images/logo.webp" class="px-3" alt="">
+                <h1 class="text-2xl font-extrabold">Peddy</h1>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1 text-xl font-extrabold">
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end ">
+              <i class="fa-regular fa-user rounded-full border p-3"></i>
+            </div>
+          </div>
+      <!-- Navbar End -->
+      <!-- Banner Section -->
+      <div class="flex flex-col items-center gap-y-8 px-3 lg:px-96 py-9">
+        <span class="font-semibold text-gray-400">Bringing Families Together ❤️‍🔥</span>
+        <h1 class="text-2xl lg:text-5xl font-extrabold text-center">Your Path to Adoption Starts Here</h1>
+        <p class="text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        <button class="px-4 py-2 rounded-lg text-white bg-[#0E7A81]">View More</button>
+        <img src="assets/images/pet.webp" alt="">
+      </div>
+    </header>
+    <main class="px-3 lg:px-36 mt-6">
+      <div class="flex flex-col items-center gap-y-2">
+        <h1 class="text-2xl font-bold ">Adopt  Your  Best Friend</h1>
+        <p class="text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+      </div>
+      <!-- Category Button -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 justify-between space-x-5 space-y-3 lg:space-y-0 mt-10" id="category"></div>
+      <div class="flex justify-between mt-20 px-4">
+        <h1 class="text-xl lg:text-2xl font-bold">Best Deal For You</h1>
+        <button class="flex items-center gap-x-10 px-4 lg:px-10 py-1 lg:py-2 border rounded-xl text-lg lg:text-xl text-white font-bold bg-[#0E7A81]" id="sortedPets">Short By Price</button>
+      </div>
+      <section class=" mt-10 grid grid-cols-1 md:grid-cols-2 space-x-0 lg:space-x-6 lg:grid-cols-4">
+        <!-- spinner -->
+        <span id="loadSpinner" class="fixed inset-10 loading loading-bars loading-lg hidden text-center"></span>
+        <div id="allpets" class="col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-5"> </div>
+        <div id="likedPets" class="mt-5 lg:mt-0 col-span-1 grid grid-cols-2 h-min space-x-2 border rounded-xl px-2"></div>
+      </section>
+    </main>
+    <footer class=" bg-black mt-10">
+       <section class="grid grid-cols-1 lg:grid-cols-3 place-items-center lg:place-items-stretch space-y-0 lg:space-y-5 text-white px-4 lg:px-40 py-5">
+          <div class="flex flex-col gap-y-4">
+            <div class="flex justify-center lg:justify-start">
+              <img src="assets/images/logo.webp" class="px-3 " alt="">
+              <h1 class="text-lg font-extrabold">Peddy</h1>
+            </div>
+            <div class="flex flex-col">
+                <h1>Location: av. Washington 165, NY CA  54003</h1>
+                <p>Email: info@yourdomain.com</p>
+                <P>Openings hours: 9.00 AM - 5.00 PM</P>
+            </div>
+            <div class="flex gap-x-6 text-xl">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+          <div class="flex flex-col justify-start gap-y-5">
+              <h1>Usefull Link</h1>
+              <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Animals</li>
+                <li>Foundation</li>
+                <li>Contact</li>
+              </ul>
+          </div>
+          <div class="flex flex-col gap-y-6">
+            <h1>Drop a Massage</h1>
+            <input type="email" placeholder="Enter your email" class="px-10 py-3 rounded-xl">
+            <button class="px-10 py-3 rounded-xl bg-[#0E7A81]">Subscribe</button>
+          </div>
+       </section>
+       <!-- Adopt Modal -->
+        <div id="adoptModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-800 bg-opacity-50 ">
+          <div class="bg-white p-6 text-center w-72 lg:w-96 rounded-2xl">
+            <i class="fa-regular fa-handshake text-3xl mb-4"></i>
+            <h3 class="text-lg font-bold">Congrates</h3>
+            <p class="py-4">Adoption Process is Start For your Pet</p>
+            <span id="countDownTime" class="text-lg font-extrabold">3</span>
+          </div>
+        </div>
+        <!-- Pet Details -->
+         <div id="petDetails"></div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
